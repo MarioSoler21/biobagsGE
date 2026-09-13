@@ -1,0 +1,9 @@
+{
+  "name": "biobags-tienda",
+  "version": "1.0.0",
+  "description": "Sitio de venta para las bolsas Bio Bags (cascara de platano + carbon activado)",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  }
+}
