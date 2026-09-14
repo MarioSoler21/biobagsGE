@@ -12,8 +12,8 @@ const PRODUCTS = [
     dimensions: "70 × 90 cm aprox.",
     unitsPerPackage: 6,
     packagePrice: 180.00,
-    image: "assets/bolsa-grande.png",
-    imageAlt: "Bolsa Bio Bags Básica de color negro junto a un barril, mostrando su tamaño y amarre con cintas",
+    image: "assets/bolsa-basica-carbon-activado.jpg",
+    imageAlt: "Bolsa Bio Bags Básica de carbón activado, color negro con el logo Biobags, junto a un barril de basura",
   },
   {
     id: "plus",
@@ -26,8 +26,8 @@ const PRODUCTS = [
     dimensions: "55 × 65 cm aprox.",
     unitsPerPackage: 6,
     packagePrice: 150.00,
-    image: "assets/bolsa-mediana.png",
-    imageAlt: "Bolsa Bio Bags Plus de color negro junto a un rollo de bolsas de repuesto",
+    image: "assets/bolsa-plus-cascara-platano.jpg",
+    imageAlt: "Bolsa Bio Bags Plus elaborada con residuos de cáscara de banano, color café claro con el logo Biobags, junto a un barril de basura",
   },
 ];
 
