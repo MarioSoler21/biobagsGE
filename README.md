@@ -19,18 +19,34 @@ Separación por responsabilidad, sin frameworks ni build step:
 biobags/
 ├── index.html        # Estructura/markup de la página (sin lógica ni estilos inline)
 ├── css/
-│   └── styles.css    # Todos los estilos
+│   └── styles.css    # Todos los estilos (paleta y tipografía definidas como variables en :root)
 ├── js/
-│   ├── products.js   # Datos del catálogo (única fuente de verdad: precios, material, capacidad)
-│   └── app.js         # Lógica: pinta las tarjetas de producto, maneja selección y calcula el total
-├── assets/
-│   ├── bolsa-grande.png
-│   └── bolsa-mediana.png
-├── server.js          # Servidor estático mínimo (sin dependencias) para correr en local
+│   ├── utils.js      # Formato de moneda (fmt) e iconos SVG en línea (icon)
+│   ├── products.js   # Datos del catálogo (única fuente de verdad: precios, material, capacidad, beneficios)
+│   ├── carousel.js   # Carrusel de presentaciones (se genera desde products.js)
+│   └── app.js        # Selector de bolsa, ficha técnica, sección de precio y checkout
+├── assets/           # Fotos de producto, detalles del material, logo e iconos
+├── server.js         # Servidor estático mínimo (sin dependencias) para correr en local
 └── package.json
 ```
 
-`products.js` es la única fuente de verdad: si cambias un precio o una capacidad ahí, se refleja automáticamente en las tarjetas de producto, la ficha técnica y el total del checkout — no hay datos duplicados en el HTML.
+`products.js` es la única fuente de verdad: si cambias un precio, una capacidad o un beneficio ahí, se refleja automáticamente en el selector, la ficha técnica, el carrusel, la sección de precio y el total del checkout — no hay datos duplicados en el HTML.
+
+## Secciones de la página (en orden)
+
+1. **Portada** — mensaje principal, subtítulo ambiental y foto del producto.
+2. **Impacto ambiental** ("¿Por qué importa este proyecto?").
+3. **Presentaciones** — carrusel con la foto completa y el detalle del material de cada línea.
+4. **Productos y ficha técnica** — selector de bolsa + ficha con material, capacidad, medidas, aroma, contenido, origen, beneficios ambientales, presentaciones y precio.
+5. **Precio** — precio por bolsa, qué paga el aporte y comparación con la bolsa plástica común.
+6. **Compra** — checkout rápido.
+7. **Cómo funciona** — al final, después de todo el producto y el impacto.
+
+## Contenido que puedes ajustar
+
+- **Más fotos en el carrusel:** agrega imágenes a `assets/` y, en `js/carousel.js`, suma una entrada al arreglo `slides`.
+- **Comparación de precio:** en `js/products.js`, pon el precio de una bolsa plástica convencional en `CONVENTIONAL_BAG_PRICE` (ej. `8.00`) y la fila "Precio por bolsa" aparece en la tabla comparativa de la sección de precio. Mientras sea `null`, la fila no se muestra.
+- **Cantidades sugeridas:** `PACKAGE_OPTIONS` en `js/products.js`.
 
 ## Correr en local
 
