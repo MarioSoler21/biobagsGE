@@ -1,10 +1,11 @@
-// Carrusel de presentaciones. Las diapositivas se generan desde PRODUCTS
-// (foto completa + detalle del material de cada línea), así que agregar un
-// producto en products.js agrega sus diapositivas automáticamente.
-// Los botones con data-select-product los atiende app.js.
+// Carrusel de la portada. Las diapositivas se generan desde PRODUCTS
+// (foto completa de cada bolsa + detalle de su material), así que agregar un
+// producto en products.js agrega sus fotos automáticamente.
+// Transición por fundido (suave) con autoplay; se pausa al pasar el mouse,
+// al enfocar con teclado, con la pestaña oculta o con "reducir movimiento".
 (function () {
-  const AUTOPLAY_MS = 6500;
-  const SWIPE_PX = 50;
+  const AUTOPLAY_MS = 5000;
+  const SWIPE_PX = 45;
 
   const viewport = document.getElementById("carouselViewport");
   const track = document.getElementById("carouselTrack");
@@ -14,39 +15,27 @@
   const toggleBtn = document.getElementById("carToggle");
   const root = document.getElementById("carousel");
 
-  const slides = [];
-  PRODUCTS.forEach((p) => {
-    slides.push({ product: p, kind: "Vista general", image: p.image, alt: p.imageAlt, text: p.aromaNote, cover: false });
-    slides.push({ product: p, kind: "Detalle del material", image: p.detailImage, alt: p.detailAlt, text: `${p.materialMain}. ${p.materialNote}.`, cover: true });
-  });
+  // Primero las dos bolsas completas (lo que más se quiere ver), luego los detalles.
+  const slides = [
+    ...PRODUCTS.map((p) => ({ product: p, image: p.image, alt: p.imageAlt, cover: false, note: `${p.capacity} · Aroma a ${p.aroma}` })),
+    ...PRODUCTS.map((p) => ({ product: p, image: p.detailImage, alt: p.detailAlt, cover: true, note: `Detalle: ${p.materialShort.toLowerCase()}` })),
+  ];
 
   track.innerHTML = slides.map((s, i) => {
     const p = s.product;
-    const perBag = p.packagePrice / p.unitsPerPackage;
-    const aromaClass = p.aroma === "Limón" ? "limon" : "cafe";
     return `
-      <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="${i + 1} de ${slides.length}">
-        <div class="slide-media${s.cover ? " is-cover" : ""}">
-          <img src="${s.image}" alt="${s.alt}" loading="${i === 0 ? "eager" : "lazy"}" decoding="async" draggable="false">
-        </div>
-        <div class="slide-copy">
-          <span class="slide-kind">${s.kind}</span>
-          <h3>${p.name}</h3>
-          <span class="aroma-badge ${aromaClass}">${icon("sparkles", 16)} Aroma a ${p.aroma}</span>
-          <p>${s.text}</p>
-          <ul class="slide-facts">
-            <li>${icon("bin", 18)} <span>${p.capacity}</span></li>
-            <li>${icon("ruler", 18)} <span>${p.dimensions}</span></li>
-            <li>${icon("package", 18)} <span>${p.unitsPerPackage} por paquete</span></li>
-          </ul>
-          <div class="slide-price"><strong>${fmt(p.packagePrice)}</strong> <span>el paquete · ${fmt(perBag)} por bolsa</span></div>
-          <button type="button" class="btn" data-select-product="${p.id}">Ver ficha técnica ${icon("arrow-right", 18)}</button>
+      <article class="slide ${s.cover ? "is-cover" : `stage-${p.stage}`}" role="group" aria-roledescription="diapositiva" aria-label="${i + 1} de ${slides.length}: ${p.name}">
+        <img src="${s.image}" alt="${s.alt}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">
+        <div class="slide-caption">
+          <span class="slide-name">${p.tier}</span>
+          <span class="slide-note">${s.note}</span>
+          <span class="slide-price">${fmt(p.packagePrice)} <small>/ ${p.unitsPerPackage} bolsas</small></span>
         </div>
       </article>`;
   }).join("");
 
-  dotsEl.innerHTML = slides.map((_, i) =>
-    `<button type="button" class="car-dot" aria-label="Ir a la diapositiva ${i + 1}"></button>`
+  dotsEl.innerHTML = slides.map((s, i) =>
+    `<button type="button" class="car-dot" aria-label="Ver foto ${i + 1}: ${s.product.tier}"></button>`
   ).join("");
   const dots = Array.from(dotsEl.children);
   const slideEls = Array.from(track.children);
@@ -59,7 +48,6 @@
 
   function goTo(i) {
     index = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
     slideEls.forEach((el, n) => {
       const active = n === index;
       el.classList.toggle("is-active", active);
@@ -80,7 +68,7 @@
   }
 
   function renderToggle() {
-    toggleBtn.innerHTML = icon(playing ? "pause" : "play", 18);
+    toggleBtn.innerHTML = icon(playing ? "pause" : "play", 16);
     toggleBtn.setAttribute("aria-label", playing ? "Pausar carrusel" : "Reproducir carrusel");
     track.setAttribute("aria-live", playing ? "off" : "polite");
   }

@@ -6,8 +6,8 @@ Sitio de una página para vender las bolsas Bio Bags en dos líneas, empacadas d
 
 | Producto | Material | Aroma | Capacidad | Contenido | Precio de paquete |
 |---|---|---|---|---|---|
-| Bolsa Básica | Carbón activado + neutralizador de olor | Limón | hasta 50 L | 6 bolsas | L 180.00 |
-| Bolsa Plus | Residuos de cáscara de banano + neutralizador de olor | Café | hasta 30 L | 6 bolsas | L 150.00 |
+| Bolsa Básica | Carbón activado + neutralizador de olor | Limón | hasta 50 L (70 × 90 cm) | 6 bolsas | L 180.00 |
+| Bolsa Plus | Residuos de cáscara de banano + neutralizador de olor | Café | hasta 30 L (55 × 65 cm) | 6 bolsas | L 150.00 |
 
 Los precios son un punto de partida — ajústalos en `js/products.js` según tus costos reales.
 
@@ -23,30 +23,40 @@ biobags/
 ├── js/
 │   ├── utils.js      # Formato de moneda (fmt) e iconos SVG en línea (icon)
 │   ├── products.js   # Datos del catálogo (única fuente de verdad: precios, material, capacidad, beneficios)
-│   ├── carousel.js   # Carrusel de presentaciones (se genera desde products.js)
-│   └── app.js        # Selector de bolsa, ficha técnica, sección de precio y checkout
+│   ├── carousel.js   # Carrusel de la portada (se genera desde products.js)
+│   └── app.js        # Tabla comparativa Básica vs Plus y checkout
 ├── assets/           # Fotos de producto, detalles del material, logo e iconos
 ├── server.js         # Servidor estático mínimo (sin dependencias) para correr en local
 └── package.json
 ```
 
-`products.js` es la única fuente de verdad: si cambias un precio, una capacidad o un beneficio ahí, se refleja automáticamente en el selector, la ficha técnica, el carrusel, la sección de precio y el total del checkout — no hay datos duplicados en el HTML.
+`products.js` es la única fuente de verdad: si cambias un precio, una capacidad o una medida ahí, se refleja automáticamente en el carrusel de portada, la tabla comparativa y el total del checkout.
 
 ## Secciones de la página (en orden)
 
-1. **Portada** — mensaje principal, subtítulo ambiental y foto del producto.
-2. **Impacto ambiental** ("¿Por qué importa este proyecto?").
-3. **Presentaciones** — carrusel con la foto completa y el detalle del material de cada línea.
-4. **Productos y ficha técnica** — selector de bolsa + ficha con material, capacidad, medidas, aroma, contenido, origen, beneficios ambientales, presentaciones y precio.
-5. **Precio** — precio por bolsa, qué paga el aporte y comparación con la bolsa plástica común.
-6. **Compra** — checkout rápido.
-7. **Cómo funciona** — al final, después de todo el producto y el impacto.
+1. **Header** — logo a color (fondo claro), enlaces y botón "Comprar ahora".
+2. **Hero con carrusel** — eslogan + fotos de las bolsas (autoplay suave, flechas, puntos, swipe).
+3. **Propuesta de valor** — 4 beneficios con íconos.
+4. **¿Básica o Plus?** — tabla comparativa lado a lado (se genera desde `products.js`).
+5. **¿Qué puedes depositar?** — ejemplos por categoría (cocina, hogar, negocios) y lista de lo que no se recomienda.
+6. **Así se ve en tu día a día** — fotos de detalle del material + escenas de uso.
+7. **Nuestra causa** — logo en blanco (fondo oscuro), impacto y a dónde va el dinero.
+8. **Preguntas frecuentes** — acordeón (`<details>`), editable directamente en `index.html`.
+9. **Haz tu pedido** — checkout rápido.
+10. **Footer** — logo en blanco.
 
-## Contenido que puedes ajustar
+## Logo y fotos
 
-- **Más fotos en el carrusel:** agrega imágenes a `assets/` y, en `js/carousel.js`, suma una entrada al arreglo `slides`.
-- **Comparación de precio:** en `js/products.js`, pon el precio de una bolsa plástica convencional en `CONVENTIONAL_BAG_PRICE` (ej. `8.00`) y la fila "Precio por bolsa" aparece en la tabla comparativa de la sección de precio. Mientras sea `null`, la fila no se muestra.
-- **Cantidades sugeridas:** `PACKAGE_OPTIONS` en `js/products.js`.
+- `assets/biobags-logo.png` — logo a color, para fondos claros (header).
+- `assets/biobags-logo-blanco.png` — palabra en blanco + hojas lima, para fondos oscuros (causa, footer).
+- `assets/biobags-logo-mono-blanco.png` — 100% blanco, para usar sobre fotos.
+- `assets/bolsa-basica.webp` / `assets/bolsa-plus.webp` — bolsas sin el barril, con fondo transparente. En la Plus se oscurecieron las hojas del isotipo para que contrasten con la bolsa clara.
+- `assets/ilustraciones/uso-*.svg` — escenas de uso (cocina, oficina, negocio). **Cámbialas por fotos reales** en la sección "Así se ve en tu día a día" de `index.html`.
+
+## Datos por confirmar
+
+- **Tiempo de degradación:** hoy dice "Meses, en compostaje". Si tienes el dato exacto, cámbialo en `degradation` (`js/products.js`) y en la pregunta frecuente.
+- **Resistencia, envíos y métodos de pago:** las respuestas del FAQ están escritas de forma general; ajústalas en `index.html`.
 
 ## Correr en local
 
@@ -68,4 +78,4 @@ python -m http.server 3000
 
 ## Conectar pagos reales
 
-El botón "Continuar mi aporte" hoy solo muestra una confirmación local (`js/app.js`). Para producción, reemplaza ese handler por tu pasarela de pago (ej. enlace de pago, WhatsApp con el resumen del pedido, o una pasarela como PayPal/Stripe).
+El botón "Hacer mi pedido" hoy solo muestra una confirmación local (`js/app.js`). Para producción, reemplaza ese handler por tu pasarela de pago (ej. enlace de pago, WhatsApp con el resumen del pedido, o una pasarela como PayPal/Stripe).
