@@ -51,7 +51,7 @@
         <span class="cmp-label" role="columnheader"><span class="sr-only">Característica</span></span>
         ${PRODUCTS.map((p) => `
           <div class="cmp-cell cmp-product stage-${p.stage}" role="columnheader">
-            <img src="${p.image}" alt="" width="850" height="1196" loading="lazy" decoding="async">
+            <img src="${p.image}" alt="" width="850" height="937" loading="lazy" decoding="async">
             <span class="cmp-name">${p.tier}</span>
             <span class="cmp-tagline">${p.tagline}</span>
           </div>`).join("")}
@@ -79,7 +79,7 @@
   function renderCheckout() {
     const p = getSelected();
     checkoutSide.innerHTML = `
-      <div class="side-photo stage-${p.stage}"><img src="${p.image}" alt="${p.imageAlt}" width="850" height="1196" loading="lazy" decoding="async"></div>
+      <div class="side-photo stage-${p.stage}"><img src="${p.image}" alt="${p.imageAlt}" width="850" height="937" loading="lazy" decoding="async"></div>
       <div class="side-info">
         <span class="side-tag">Tu selección</span>
         <h3>${p.name}</h3>
