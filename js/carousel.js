@@ -15,30 +15,38 @@
   const toggleBtn = document.getElementById("carToggle");
   const root = document.getElementById("carousel");
 
-  // Primero las dos bolsas completas (lo que más se quiere ver), luego los detalles.
-  const slides = [
-    ...PRODUCTS.map((p) => ({ product: p, image: p.image, alt: p.imageAlt, cover: false, note: `${p.capacity} · Aroma a ${p.aroma}` })),
-    ...PRODUCTS.map((p) => ({ product: p, image: p.detailImage, alt: p.detailAlt, cover: true, note: `Detalle: ${p.materialShort.toLowerCase()}` })),
-  ];
+  let slides = [];
+  let dots = [];
+  let slideEls = [];
 
-  track.innerHTML = slides.map((s, i) => {
-    const p = s.product;
-    return `
-      <article class="slide ${s.cover ? "is-cover" : `stage-${p.stage}`}" role="group" aria-roledescription="diapositiva" aria-label="${i + 1} de ${slides.length}: ${p.name}">
-        <img src="${s.image}" alt="${s.alt}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">
-        <div class="slide-caption">
-          <span class="slide-name">${p.tier}</span>
-          <span class="slide-note">${s.note}</span>
-          <span class="slide-price">${fmt(p.packagePrice)} <small>/ ${p.unitsPerPackage} bolsas</small></span>
-        </div>
-      </article>`;
-  }).join("");
+  // Se vuelve a pintar al cambiar de idioma (textos y moneda), sin mover la foto actual.
+  function render() {
+    const products = PRODUCTS.map(loc);
+    // Primero las dos bolsas completas (lo que más se quiere ver), luego los detalles.
+    slides = [
+      ...products.map((p) => ({ product: p, image: p.image, alt: p.imageAlt, cover: false, note: `${p.capacity} · ${t("aromaOf", { aroma: p.aroma })}` })),
+      ...products.map((p) => ({ product: p, image: p.detailImage, alt: p.detailAlt, cover: true, note: t("car.detail", { material: p.materialShort.toLowerCase() }) })),
+    ];
 
-  dotsEl.innerHTML = slides.map((s, i) =>
-    `<button type="button" class="car-dot" aria-label="Ver foto ${i + 1}: ${s.product.tier}"></button>`
-  ).join("");
-  const dots = Array.from(dotsEl.children);
-  const slideEls = Array.from(track.children);
+    track.innerHTML = slides.map((s, i) => {
+      const p = s.product;
+      return `
+        <article class="slide ${s.cover ? "is-cover" : `stage-${p.stage}`}" role="group" aria-roledescription="${t("car.slideRole")}" aria-label="${t("car.slide", { i: i + 1, n: slides.length, name: p.name })}">
+          <img src="${s.image}" alt="${s.alt}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" draggable="false">
+          <div class="slide-caption">
+            <span class="slide-name">${p.tier}</span>
+            <span class="slide-note">${s.note}</span>
+            <span class="slide-price">${fmt(p.packagePrice)} <small>${t("car.perBags", { n: p.unitsPerPackage })}</small></span>
+          </div>
+        </article>`;
+    }).join("");
+
+    dotsEl.innerHTML = slides.map((s, i) =>
+      `<button type="button" class="car-dot" aria-label="${t("car.dot", { i: i + 1, tier: s.product.tier })}"></button>`
+    ).join("");
+    dots = Array.from(dotsEl.children);
+    slideEls = Array.from(track.children);
+  }
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let index = 0;
@@ -69,7 +77,7 @@
 
   function renderToggle() {
     toggleBtn.innerHTML = icon(playing ? "pause" : "play", 16);
-    toggleBtn.setAttribute("aria-label", playing ? "Pausar carrusel" : "Reproducir carrusel");
+    toggleBtn.setAttribute("aria-label", t(playing ? "car.pause" : "car.play"));
     track.setAttribute("aria-live", playing ? "off" : "polite");
   }
 
@@ -80,7 +88,10 @@
 
   prevBtn.addEventListener("click", () => move(-1));
   nextBtn.addEventListener("click", () => move(1));
-  dots.forEach((d, n) => d.addEventListener("click", () => { goTo(n); schedule(); }));
+  dotsEl.addEventListener("click", (e) => {
+    const n = dots.indexOf(e.target.closest(".car-dot"));
+    if (n >= 0) { goTo(n); schedule(); }
+  });
   toggleBtn.addEventListener("click", () => { playing = !playing; renderToggle(); schedule(); });
 
   root.addEventListener("mouseenter", () => { hovering = true; schedule(); });
@@ -104,6 +115,13 @@
   });
   viewport.addEventListener("pointercancel", () => { startX = null; });
 
+  document.addEventListener("langchange", () => {
+    render();
+    renderToggle();
+    goTo(index);
+  });
+
+  render();
   renderToggle();
   goTo(0);
   schedule();

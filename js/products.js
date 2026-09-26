@@ -1,4 +1,4 @@
-// Catálogo de productos — única fuente de verdad para precios y datos técnicos.
+// Catálogo de productos — única fuente de verdad para precios (en lempiras) y datos técnicos.
 // Cambia aquí los precios/capacidades y se actualizan solos en toda la página
 // (carrusel de portada, comparación Básica vs Plus y total del checkout).
 const PRODUCTS = [
@@ -8,6 +8,7 @@ const PRODUCTS = [
     tier: "Básica",
     tagline: "Para la basura pesada de todos los días",
     aroma: "Limón",
+    aromaKey: "limon",
     aromaNote: "El carbón activado atrapa el mal olor y deja un aroma suave a limón.",
     materialMain: "Carbón activado",
     materialShort: "Carbón activado",
@@ -24,6 +25,23 @@ const PRODUCTS = [
     imageAlt: "Bolsa Bio Bags Básica de carbón activado, color negro, con su rollo y el logo Biobags",
     detailImage: "assets/detalle-basica-carbon-activado.jpg",
     detailAlt: "Acercamiento a la textura de la bolsa Básica de carbón activado",
+    // Textos en portugués (Brasil); lo que no aparezca aquí se usa tal cual.
+    pt: {
+      name: "Saco Bio Bags Básico",
+      tier: "Básico",
+      tagline: "Para o lixo pesado de todos os dias",
+      aroma: "Limão",
+      aromaNote: "O carvão ativado prende o mau cheiro e deixa um aroma suave de limão.",
+      materialMain: "Carvão ativado",
+      materialShort: "Carvão ativado",
+      capacity: "Até 50 L",
+      usage: "Cozinha e lixeiras grandes",
+      mainBenefit: "Maior e controla o mau cheiro",
+      strength: "Aguenta restos de comida e lixo pesado",
+      degradation: "Meses, na compostagem",
+      imageAlt: "Saco Bio Bags Básico de carvão ativado, cor preta, com seu rolo e o logo Biobags",
+      detailAlt: "Close da textura do saco Básico de carvão ativado",
+    },
   },
   {
     id: "plus",
@@ -31,6 +49,7 @@ const PRODUCTS = [
     tier: "Plus",
     tagline: "Hecha con cáscara de banano",
     aroma: "Café",
+    aromaKey: "cafe",
     aromaNote: "Hecha con residuos de cáscara de banano. Deja un aroma suave a café.",
     materialMain: "Residuos de cáscara de banano",
     materialShort: "Cáscara de banano",
@@ -47,6 +66,22 @@ const PRODUCTS = [
     imageAlt: "Bolsa Bio Bags Plus de cáscara de banano, color amarillo, con su rollo y el logo Biobags",
     detailImage: "assets/detalle-plus.jpg",
     detailAlt: "Acercamiento a la textura de la bolsa Plus hecha con cáscara de banano",
+    pt: {
+      name: "Saco Bio Bags Plus",
+      tier: "Plus",
+      tagline: "Feito com casca de banana",
+      aroma: "Café",
+      aromaNote: "Feito com resíduos de casca de banana. Deixa um aroma suave de café.",
+      materialMain: "Resíduos de casca de banana",
+      materialShort: "Casca de banana",
+      capacity: "Até 30 L",
+      usage: "Banheiro, escritório e lixeiras pequenas",
+      mainBenefit: "Aproveita um resíduo agrícola",
+      strength: "Para lixo leve e seco",
+      degradation: "Meses, na compostagem",
+      imageAlt: "Saco Bio Bags Plus de casca de banana, cor amarela, com seu rolo e o logo Biobags",
+      detailAlt: "Close da textura do saco Plus feito com casca de banana",
+    },
   },
 ];
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bio Bags — Bolsas que se van, no que se quedan</title>
-<meta name="description" content="Bolsas de basura biodegradables Bio Bags, hechas en Honduras. Básica (carbón activado, aroma a limón) y Plus (cáscara de banano, aroma a café). Se degradan en meses, no en siglos.">
+<title data-i18n="meta.title">Bio Bags — Bolsas que se van, no que se quedan</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="Bolsas de basura biodegradables Bio Bags, hechas en Honduras. Básica (carbón activado, aroma a limón) y Plus (cáscara de banano, aroma a café). Se degradan en meses, no en siglos.">
 <meta name="theme-color" content="#1F4F15">
 <link rel="icon" href="assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -21,17 +21,21 @@
 
 <header class="site-header">
   <div class="wrap header-bar">
-    <a class="brand" href="#" aria-label="Bio Bags — inicio">
+    <a class="brand" href="#" aria-label="Bio Bags — inicio" data-i18n-attr="aria-label:header.home">
       <!-- Fondo claro → logo a color -->
       <img class="logo-full" src="assets/biobags-logo.png" alt="Bio Bags" width="93" height="64">
     </a>
-    <nav class="nav-links" aria-label="Principal">
-      <a href="#comparar">Bolsas</a>
-      <a href="#depositar">¿Qué depositar?</a>
-      <a href="#causa">Nuestra causa</a>
-      <a href="#preguntas">Preguntas</a>
+    <nav class="nav-links" aria-label="Principal" data-i18n-attr="aria-label:nav.main">
+      <a href="#comparar" data-i18n="nav.bags">Bolsas</a>
+      <a href="#depositar" data-i18n="nav.deposit">¿Qué depositar?</a>
+      <a href="#causa" data-i18n="nav.cause">Nuestra causa</a>
+      <a href="#preguntas" data-i18n="nav.faq">Preguntas</a>
     </nav>
-    <a class="btn header-cta" href="#compra">Comprar ahora</a>
+    <div class="lang-switch" role="group" aria-label="Idioma y moneda" data-i18n-attr="aria-label:lang.group">
+      <button type="button" class="lang-btn" data-lang="es" aria-pressed="true" lang="es"><svg class="flag" viewBox="0 0 36 24" width="22" height="15" aria-hidden="true" focusable="false"><rect width="36" height="24" fill="#FFFFFF"/><rect width="36" height="8" fill="#00BCE4"/><rect y="16" width="36" height="8" fill="#00BCE4"/><g fill="#00BCE4"><path id="hn-star" d="M0-1.6.38-.52 1.52-.49.61.19.94 1.29 0 .64-.94 1.29-.61.19-1.52-.49-.38-.52Z" transform="translate(18 12)"/><use href="#hn-star" x="-5.5" y="-1.8"/><use href="#hn-star" x="-5.5" y="1.8"/><use href="#hn-star" x="5.5" y="-1.8"/><use href="#hn-star" x="5.5" y="1.8"/></g></svg><span class="lang-code">ES</span><span class="sr-only"> Español, Honduras, lempiras</span></button>
+      <button type="button" class="lang-btn" data-lang="pt" aria-pressed="false" lang="pt"><svg class="flag" viewBox="0 0 36 24" width="22" height="15" aria-hidden="true" focusable="false"><rect width="36" height="24" fill="#009C3B"/><path d="M18 2.6 33 12 18 21.4 3 12Z" fill="#FFDF00"/><circle cx="18" cy="12" r="5.6" fill="#002776"/><path d="M12.6 11.1c3.6-1 7.4-.6 10.8 1.6" stroke="#FFFFFF" stroke-width="1" fill="none"/></svg><span class="lang-code">PT</span><span class="sr-only"> Português, Brasil, reais</span></button>
+    </div>
+    <a class="btn header-cta" href="#compra" data-i18n="cta">Comprar ahora</a>
   </div>
 </header>
 
@@ -41,25 +45,25 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="hero-kicker"><span data-icon="leaf" data-size="16"></span> Bolsas de basura biodegradables</span>
-      <h1>Bolsas que <em>se van</em>, no que se quedan</h1>
-      <p class="sub">Se degradan en meses, no en siglos. Y atrapan el mal olor mientras las usas.</p>
+      <span class="hero-kicker"><span data-icon="leaf" data-size="16"></span> <span data-i18n="hero.kicker">Bolsas de basura biodegradables</span></span>
+      <h1 data-i18n="hero.title">Bolsas que <em>se van</em>, no que se quedan</h1>
+      <p class="sub" data-i18n="hero.sub">Se degradan en meses, no en siglos. Y atrapan el mal olor mientras las usas.</p>
       <div class="ctas">
-        <a class="btn btn-lg" href="#compra">Comprar ahora <span data-icon="arrow-right" data-size="20"></span></a>
-        <a class="btn-link" href="#comparar">Comparar bolsas</a>
+        <a class="btn btn-lg" href="#compra"><span data-i18n="cta">Comprar ahora</span> <span data-icon="arrow-right" data-size="20"></span></a>
+        <a class="btn-link" href="#comparar" data-i18n="hero.compare">Comparar bolsas</a>
       </div>
       <ul class="hero-trust">
-        <li><span data-icon="pin" data-size="18"></span> Hechas en Honduras</li>
-        <li><span data-icon="package" data-size="18"></span> Paquete de 6</li>
-        <li><span data-icon="clock" data-size="18"></span> Se degradan en meses</li>
+        <li><span data-icon="pin" data-size="18"></span> <span data-i18n="hero.trust1">Hechas en Honduras</span></li>
+        <li><span data-icon="package" data-size="18"></span> <span data-i18n="hero.trust2">Paquete de 6</span></li>
+        <li><span data-icon="clock" data-size="18"></span> <span data-i18n="hero.trust3">Se degradan en meses</span></li>
       </ul>
     </div>
 
-    <div class="carousel" id="carousel" role="region" aria-roledescription="carrusel" aria-label="Fotos de las bolsas Bio Bags">
+    <div class="carousel" id="carousel" role="region" aria-roledescription="carrusel" aria-label="Fotos de las bolsas Bio Bags" data-i18n-attr="aria-roledescription:car.role; aria-label:car.label">
       <div class="carousel-viewport" id="carouselViewport">
         <div class="carousel-track" id="carouselTrack"><!-- generado por js/carousel.js --></div>
-        <button type="button" class="car-btn car-prev" id="carPrev" aria-label="Foto anterior"><span data-icon="chevron-left"></span></button>
-        <button type="button" class="car-btn car-next" id="carNext" aria-label="Foto siguiente"><span data-icon="chevron-right"></span></button>
+        <button type="button" class="car-btn car-prev" id="carPrev" aria-label="Foto anterior" data-i18n-attr="aria-label:car.prev"><span data-icon="chevron-left"></span></button>
+        <button type="button" class="car-btn car-next" id="carNext" aria-label="Foto siguiente" data-i18n-attr="aria-label:car.next"><span data-icon="chevron-right"></span></button>
       </div>
       <div class="carousel-bar">
         <div class="car-dots" id="carDots"></div>
@@ -75,23 +79,23 @@
     <ul class="vp-grid">
       <li class="vp">
         <span class="vp-icon" data-icon="clock" data-size="26"></span>
-        <h3>Se degrada en meses</h3>
-        <p>El plástico común dura cientos de años. Bio Bags, solo meses en compostaje.</p>
+        <h3 data-i18n="vp1.title">Se degrada en meses</h3>
+        <p data-i18n="vp1.text">El plástico común dura cientos de años. Bio Bags, solo meses en compostaje.</p>
       </li>
       <li class="vp">
         <span class="vp-icon" data-icon="sparkles" data-size="26"></span>
-        <h3>Adiós al mal olor</h3>
-        <p>Su material atrapa los olores y deja un aroma suave a limón o a café.</p>
+        <h3 data-i18n="vp2.title">Adiós al mal olor</h3>
+        <p data-i18n="vp2.text">Su material atrapa los olores y deja un aroma suave a limón o a café.</p>
       </li>
       <li class="vp">
         <span class="vp-icon" data-icon="shield" data-size="26"></span>
-        <h3>Lista para el día a día</h3>
-        <p>Para la cocina, el baño, la oficina o tu negocio.</p>
+        <h3 data-i18n="vp3.title">Lista para el día a día</h3>
+        <p data-i18n="vp3.text">Para la cocina, el baño, la oficina o tu negocio.</p>
       </li>
       <li class="vp">
         <span class="vp-icon" data-icon="heart" data-size="26"></span>
-        <h3>Hecha en Honduras</h3>
-        <p>Hecha a mano, con materiales naturales. Cada compra apoya el proyecto.</p>
+        <h3 data-i18n="vp4.title">Hecha en Honduras</h3>
+        <p data-i18n="vp4.text">Hecha a mano, con materiales naturales. Cada compra apoya el proyecto.</p>
       </li>
     </ul>
   </div>
@@ -101,11 +105,11 @@
 <section class="compare" id="comparar">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow">Nuestras bolsas</span>
-      <h2>¿Básica o Plus?</h2>
-      <p class="lead">Las dos se degradan en meses. Cambian el tamaño, el material y el aroma.</p>
+      <span class="eyebrow" data-i18n="cmp.eyebrow">Nuestras bolsas</span>
+      <h2 data-i18n="cmp.title">¿Básica o Plus?</h2>
+      <p class="lead" data-i18n="cmp.lead">Las dos se degradan en meses. Cambian el tamaño, el material y el aroma.</p>
     </div>
-    <div class="cmp-table" id="compareTable" role="table" aria-label="Comparación entre la Bolsa Básica y la Bolsa Plus"><!-- generado por js/app.js --></div>
+    <div class="cmp-table" id="compareTable" role="table" aria-label="Comparación entre la Bolsa Básica y la Bolsa Plus" data-i18n-attr="aria-label:cmp.tableLabel"><!-- generado por js/app.js --></div>
   </div>
 </section>
 
@@ -113,38 +117,38 @@
 <section class="deposit" id="depositar">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow">Guía rápida</span>
-      <h2>¿Qué puedes depositar?</h2>
-      <p class="lead">Úsala para la basura de todos los días. Aquí van algunos ejemplos.</p>
+      <span class="eyebrow" data-i18n="dep.eyebrow">Guía rápida</span>
+      <h2 data-i18n="dep.title">¿Qué puedes depositar?</h2>
+      <p class="lead" data-i18n="dep.lead">Úsala para la basura de todos los días. Aquí van algunos ejemplos.</p>
     </div>
 
     <div class="deposit-grid">
       <article class="dep-card">
-        <header class="dep-head"><span class="dep-icon" data-icon="utensils" data-size="24"></span><h3>Cocina</h3></header>
+        <header class="dep-head"><span class="dep-icon" data-icon="utensils" data-size="24"></span><h3 data-i18n="dep.kitchen">Cocina</h3></header>
         <ul class="dep-list">
-          <li><span data-icon="apple" data-size="20"></span> Cáscaras de frutas y verduras</li>
-          <li><span data-icon="utensils" data-size="20"></span> Restos de comida</li>
-          <li><span data-icon="coffee" data-size="20"></span> Café molido y bolsitas de té</li>
-          <li><span data-icon="egg" data-size="20"></span> Cascarones de huevo</li>
-          <li><span data-icon="file" data-size="20"></span> Servilletas y papel de cocina</li>
+          <li><span data-icon="apple" data-size="20"></span> <span data-i18n="dep.k1">Cáscaras de frutas y verduras</span></li>
+          <li><span data-icon="utensils" data-size="20"></span> <span data-i18n="dep.k2">Restos de comida</span></li>
+          <li><span data-icon="coffee" data-size="20"></span> <span data-i18n="dep.k3">Café molido y bolsitas de té</span></li>
+          <li><span data-icon="egg" data-size="20"></span> <span data-i18n="dep.k4">Cascarones de huevo</span></li>
+          <li><span data-icon="file" data-size="20"></span> <span data-i18n="dep.k5">Servilletas y papel de cocina</span></li>
         </ul>
       </article>
       <article class="dep-card">
-        <header class="dep-head"><span class="dep-icon" data-icon="home" data-size="24"></span><h3>Hogar</h3></header>
+        <header class="dep-head"><span class="dep-icon" data-icon="home" data-size="24"></span><h3 data-i18n="dep.home">Hogar</h3></header>
         <ul class="dep-list">
-          <li><span data-icon="wind" data-size="20"></span> Polvo y basura de barrer</li>
-          <li><span data-icon="file" data-size="20"></span> Pañuelos y papel higiénico</li>
-          <li><span data-icon="sprout" data-size="20"></span> Hojas y restos del jardín</li>
-          <li><span data-icon="package" data-size="20"></span> Empaques pequeños de papel o cartón</li>
+          <li><span data-icon="wind" data-size="20"></span> <span data-i18n="dep.h1">Polvo y basura de barrer</span></li>
+          <li><span data-icon="file" data-size="20"></span> <span data-i18n="dep.h2">Pañuelos y papel higiénico</span></li>
+          <li><span data-icon="sprout" data-size="20"></span> <span data-i18n="dep.h3">Hojas y restos del jardín</span></li>
+          <li><span data-icon="package" data-size="20"></span> <span data-i18n="dep.h4">Empaques pequeños de papel o cartón</span></li>
         </ul>
       </article>
       <article class="dep-card">
-        <header class="dep-head"><span class="dep-icon" data-icon="store" data-size="24"></span><h3>Negocios y oficinas</h3></header>
+        <header class="dep-head"><span class="dep-icon" data-icon="store" data-size="24"></span><h3 data-i18n="dep.business">Negocios y oficinas</h3></header>
         <ul class="dep-list">
-          <li><span data-icon="briefcase" data-size="20"></span> Papel de oficina</li>
-          <li><span data-icon="cup" data-size="20"></span> Vasos y platos de papel</li>
-          <li><span data-icon="utensils" data-size="20"></span> Restos de comida del personal</li>
-          <li><span data-icon="file" data-size="20"></span> Servilletas y toallas de papel</li>
+          <li><span data-icon="briefcase" data-size="20"></span> <span data-i18n="dep.b1">Papel de oficina</span></li>
+          <li><span data-icon="cup" data-size="20"></span> <span data-i18n="dep.b2">Vasos y platos de papel</span></li>
+          <li><span data-icon="utensils" data-size="20"></span> <span data-i18n="dep.b3">Restos de comida del personal</span></li>
+          <li><span data-icon="file" data-size="20"></span> <span data-i18n="dep.b4">Servilletas y toallas de papel</span></li>
         </ul>
       </article>
     </div>
@@ -153,16 +157,16 @@
       <div class="avoid-head">
         <span class="avoid-badge" data-icon="alert" data-size="24"></span>
         <div>
-          <h3>No se recomienda</h3>
-          <p>Estos residuos pueden romper la bolsa o dañar el compost.</p>
+          <h3 data-i18n="avoid.title">No se recomienda</h3>
+          <p data-i18n="avoid.lead">Estos residuos pueden romper la bolsa o dañar el compost.</p>
         </div>
       </div>
       <ul class="avoid-list">
-        <li><span class="avoid-icon" data-icon="droplet" data-size="22"></span><div><strong>Aceite de cocina o de carro</strong><span>Mancha y debilita el material. Guárdalo en una botella cerrada.</span></div></li>
-        <li><span class="avoid-icon" data-icon="droplet" data-size="22"></span><div><strong>Líquidos</strong><span>Mojan la bolsa y la rompen. Escurre los restos antes de tirarlos.</span></div></li>
-        <li><span class="avoid-icon" data-icon="scissors" data-size="22"></span><div><strong>Objetos punzantes</strong><span>Vidrio roto, latas abiertas o agujas perforan la bolsa. Envuélvelos aparte.</span></div></li>
-        <li><span class="avoid-icon" data-icon="flask" data-size="22"></span><div><strong>Químicos y baterías</strong><span>Son residuos peligrosos. Llévalos a un centro de acopio.</span></div></li>
-        <li><span class="avoid-icon" data-icon="flame" data-size="22"></span><div><strong>Cenizas o brasas calientes</strong><span>El calor daña la bolsa. Espera a que se enfríen por completo.</span></div></li>
+        <li><span class="avoid-icon" data-icon="droplet" data-size="22"></span><div data-i18n="avoid.1"><strong>Aceite de cocina o de carro</strong><span>Mancha y debilita el material. Guárdalo en una botella cerrada.</span></div></li>
+        <li><span class="avoid-icon" data-icon="droplet" data-size="22"></span><div data-i18n="avoid.2"><strong>Líquidos</strong><span>Mojan la bolsa y la rompen. Escurre los restos antes de tirarlos.</span></div></li>
+        <li><span class="avoid-icon" data-icon="scissors" data-size="22"></span><div data-i18n="avoid.3"><strong>Objetos punzantes</strong><span>Vidrio roto, latas abiertas o agujas perforan la bolsa. Envuélvelos aparte.</span></div></li>
+        <li><span class="avoid-icon" data-icon="flask" data-size="22"></span><div data-i18n="avoid.4"><strong>Químicos y baterías</strong><span>Son residuos peligrosos. Llévalos a un centro de acopio.</span></div></li>
+        <li><span class="avoid-icon" data-icon="flame" data-size="22"></span><div data-i18n="avoid.5"><strong>Cenizas o brasas calientes</strong><span>El calor daña la bolsa. Espera a que se enfríen por completo.</span></div></li>
       </ul>
     </div>
   </div>
@@ -172,31 +176,31 @@
 <section class="in-use" id="en-uso">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">De cerca</span>
-      <h2>Así se ve en tu día a día</h2>
-      <p class="lead">Mira la textura del material y dónde usar cada bolsa.</p>
+      <span class="eyebrow" data-i18n="use.eyebrow">De cerca</span>
+      <h2 data-i18n="use.title">Así se ve en tu día a día</h2>
+      <p class="lead" data-i18n="use.lead">Mira la textura del material y dónde usar cada bolsa.</p>
     </div>
     <div class="use-grid">
       <figure class="use-card use-detail">
-        <img src="assets/detalle-basica-carbon-activado.jpg" alt="Acercamiento a la textura de la bolsa Básica de carbón activado" width="640" height="640" loading="lazy" decoding="async">
-        <figcaption><strong>Básica</strong> Textura de carbón activado</figcaption>
+        <img src="assets/detalle-basica-carbon-activado.jpg" data-i18n-attr="alt:use.basicaAlt" alt="Acercamiento a la textura de la bolsa Básica de carbón activado" width="640" height="640" loading="lazy" decoding="async">
+        <figcaption data-i18n="use.basicaCap"><strong>Básica</strong> Textura de carbón activado</figcaption>
       </figure>
       <figure class="use-card use-detail">
-        <img src="assets/detalle-plus.jpg" alt="Acercamiento a la textura de la bolsa Plus hecha con cáscara de banano" width="640" height="640" loading="lazy" decoding="async">
-        <figcaption><strong>Plus</strong> Fibras de cáscara de banano</figcaption>
+        <img src="assets/detalle-plus.jpg" data-i18n-attr="alt:use.plusAlt" alt="Acercamiento a la textura de la bolsa Plus hecha con cáscara de banano" width="640" height="640" loading="lazy" decoding="async">
+        <figcaption data-i18n="use.plusCap"><strong>Plus</strong> Fibras de cáscara de banano</figcaption>
       </figure>
       <!-- Para usar fotos reales, cambia el src de estas tres imágenes por tus fotos (ej. assets/uso-cocina.jpg). -->
       <figure class="use-card use-scene">
-        <img src="assets/ilustraciones/uso-cocina.svg" alt="Bote de cocina con una bolsa Bio Bags Básica" width="800" height="600" loading="lazy" decoding="async">
-        <figcaption><strong>En la cocina</strong> Básica · restos de comida</figcaption>
+        <img src="assets/ilustraciones/uso-cocina.svg" data-i18n-attr="alt:use.kitchenAlt" alt="Bote de cocina con una bolsa Bio Bags Básica" width="800" height="600" loading="lazy" decoding="async">
+        <figcaption data-i18n="use.kitchenCap"><strong>En la cocina</strong> Básica · restos de comida</figcaption>
       </figure>
       <figure class="use-card use-scene">
-        <img src="assets/ilustraciones/uso-oficina.svg" alt="Escritorio de oficina con un bote y una bolsa Bio Bags Plus" width="800" height="600" loading="lazy" decoding="async">
-        <figcaption><strong>En la oficina</strong> Plus · papel y basura seca</figcaption>
+        <img src="assets/ilustraciones/uso-oficina.svg" data-i18n-attr="alt:use.officeAlt" alt="Escritorio de oficina con un bote y una bolsa Bio Bags Plus" width="800" height="600" loading="lazy" decoding="async">
+        <figcaption data-i18n="use.officeCap"><strong>En la oficina</strong> Plus · papel y basura seca</figcaption>
       </figure>
       <figure class="use-card use-scene">
-        <img src="assets/ilustraciones/uso-negocio.svg" alt="Mostrador de un pequeño negocio con un bote y una bolsa Bio Bags" width="800" height="600" loading="lazy" decoding="async">
-        <figcaption><strong>En tu negocio</strong> Básica · uso diario</figcaption>
+        <img src="assets/ilustraciones/uso-negocio.svg" data-i18n-attr="alt:use.shopAlt" alt="Mostrador de un pequeño negocio con un bote y una bolsa Bio Bags" width="800" height="600" loading="lazy" decoding="async">
+        <figcaption data-i18n="use.shopCap"><strong>En tu negocio</strong> Básica · uso diario</figcaption>
       </figure>
     </div>
   </div>
@@ -208,22 +212,22 @@
     <div class="cause-copy">
       <!-- Fondo oscuro → logo en versión blanca -->
       <img class="cause-logo" src="assets/biobags-logo-blanco.png" alt="Bio Bags" width="116" height="80" loading="lazy">
-      <span class="eyebrow">Nuestra causa</span>
-      <h2>Menos plástico que dura para siempre</h2>
-      <p>Una bolsa plástica se usa unos minutos, pero se queda en el ambiente cientos de años.</p>
-      <p>Bio Bags nace para cambiar eso: bolsas que cumplen su función y luego vuelven a la tierra.</p>
+      <span class="eyebrow" data-i18n="cause.eyebrow">Nuestra causa</span>
+      <h2 data-i18n="cause.title">Menos plástico que dura para siempre</h2>
+      <p data-i18n="cause.p1">Una bolsa plástica se usa unos minutos, pero se queda en el ambiente cientos de años.</p>
+      <p data-i18n="cause.p2">Bio Bags nace para cambiar eso: bolsas que cumplen su función y luego vuelven a la tierra.</p>
       <div class="chips">
-        <div class="chip plastic"><span class="label">Bolsa plástica común</span><span class="value">cientos de años</span></div>
-        <div class="chip bio"><span class="label">Bolsa Bio Bags, en compostaje</span><span class="value">meses</span></div>
+        <div class="chip plastic"><span class="label" data-i18n="cause.chip1">Bolsa plástica común</span><span class="value" data-i18n="cause.chip1v">cientos de años</span></div>
+        <div class="chip bio"><span class="label" data-i18n="cause.chip2">Bolsa Bio Bags, en compostaje</span><span class="value" data-i18n="cause.chip2v">meses</span></div>
       </div>
     </div>
     <div class="cause-card">
-      <h3><span data-icon="heart" data-size="22"></span> ¿A dónde va tu dinero?</h3>
-      <p class="cause-card-lead">Cada compra paga la siguiente tanda de bolsas.</p>
+      <h3><span data-icon="heart" data-size="22"></span> <span data-i18n="cause.cardTitle">¿A dónde va tu dinero?</span></h3>
+      <p class="cause-card-lead" data-i18n="cause.cardLead">Cada compra paga la siguiente tanda de bolsas.</p>
       <ul class="funds">
-        <li><span class="fund-icon" data-icon="leaf" data-size="20"></span><div><strong>Materia prima</strong><span>Carbón activado y cáscara de banano.</span></div></li>
-        <li><span class="fund-icon" data-icon="factory" data-size="20"></span><div><strong>Elaboración</strong><span>Cada tanda se hace a mano en Honduras.</span></div></li>
-        <li><span class="fund-icon" data-icon="truck" data-size="20"></span><div><strong>Entrega</strong><span>Que tu pedido llegue hasta ti.</span></div></li>
+        <li><span class="fund-icon" data-icon="leaf" data-size="20"></span><div data-i18n="cause.f1"><strong>Materia prima</strong><span>Carbón activado y cáscara de banano.</span></div></li>
+        <li><span class="fund-icon" data-icon="factory" data-size="20"></span><div data-i18n="cause.f2"><strong>Elaboración</strong><span>Cada tanda se hace a mano en Honduras.</span></div></li>
+        <li><span class="fund-icon" data-icon="truck" data-size="20"></span><div data-i18n="cause.f3"><strong>Entrega</strong><span>Que tu pedido llegue hasta ti.</span></div></li>
       </ul>
     </div>
   </div>
@@ -233,37 +237,37 @@
 <section class="faq" id="preguntas">
   <div class="wrap faq-wrap">
     <div class="section-head center">
-      <span class="eyebrow">Preguntas frecuentes</span>
-      <h2>Resolvemos tus dudas</h2>
+      <span class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</span>
+      <h2 data-i18n="faq.title">Resolvemos tus dudas</h2>
     </div>
     <div class="faq-list">
       <details class="faq-item">
-        <summary><span data-icon="clock" data-size="20"></span> ¿Cuánto tarda en degradarse?</summary>
-        <div class="faq-body"><p>Unos meses en compostaje. Una bolsa plástica común tarda cientos de años. El tiempo exacto depende del calor, la humedad y el lugar donde termine.</p></div>
+        <summary><span data-icon="clock" data-size="20"></span> <span data-i18n="faq.q1">¿Cuánto tarda en degradarse?</span></summary>
+        <div class="faq-body" data-i18n="faq.a1"><p>Unos meses en compostaje. Una bolsa plástica común tarda cientos de años. El tiempo exacto depende del calor, la humedad y el lugar donde termine.</p></div>
       </details>
       <details class="faq-item">
-        <summary><span data-icon="shield" data-size="20"></span> ¿Qué tan resistente es?</summary>
-        <div class="faq-body"><p>Aguanta la basura de todos los días. La Básica es la más grande (hasta 50 L) y va mejor con restos de comida y basura pesada. La Plus (hasta 30 L) es ideal para basura ligera y seca. Para que dure más, no la llenes de más y evita líquidos y objetos punzantes.</p></div>
+        <summary><span data-icon="shield" data-size="20"></span> <span data-i18n="faq.q2">¿Qué tan resistente es?</span></summary>
+        <div class="faq-body" data-i18n="faq.a2"><p>Aguanta la basura de todos los días. La Básica es la más grande (hasta 50 L) y va mejor con restos de comida y basura pesada. La Plus (hasta 30 L) es ideal para basura ligera y seca. Para que dure más, no la llenes de más y evita líquidos y objetos punzantes.</p></div>
       </details>
       <details class="faq-item">
-        <summary><span data-icon="bag" data-size="20"></span> ¿Qué diferencia hay entre la Básica y la Plus?</summary>
-        <div class="faq-body"><p><strong>Básica:</strong> de carbón activado, hasta 50 L, aroma a limón. Para la cocina y botes grandes.</p><p><strong>Plus:</strong> de cáscara de banano, hasta 30 L, aroma a café. Para el baño, la oficina y botes pequeños.</p><p><a class="btn-link" href="#comparar">Ver la comparación completa</a></p></div>
+        <summary><span data-icon="bag" data-size="20"></span> <span data-i18n="faq.q3">¿Qué diferencia hay entre la Básica y la Plus?</span></summary>
+        <div class="faq-body" data-i18n="faq.a3"><p><strong>Básica:</strong> de carbón activado, hasta 50 L, aroma a limón. Para la cocina y botes grandes.</p><p><strong>Plus:</strong> de cáscara de banano, hasta 30 L, aroma a café. Para el baño, la oficina y botes pequeños.</p><p><a class="btn-link" href="#comparar">Ver la comparación completa</a></p></div>
       </details>
       <details class="faq-item">
-        <summary><span data-icon="package" data-size="20"></span> ¿Cómo hago un pedido?</summary>
-        <div class="faq-body"><ol class="faq-steps"><li>Elige tu bolsa: Básica o Plus.</li><li>Elige cuántos paquetes quieres (6 bolsas cada uno).</li><li>Confirma tu pedido y te contactamos para coordinar el pago y la entrega.</li></ol><p><a class="btn-link" href="#compra">Ir a comprar</a></p></div>
+        <summary><span data-icon="package" data-size="20"></span> <span data-i18n="faq.q4">¿Cómo hago un pedido?</span></summary>
+        <div class="faq-body" data-i18n="faq.a4"><ol class="faq-steps"><li>Elige tu bolsa: Básica o Plus.</li><li>Elige cuántos paquetes quieres (6 bolsas cada uno).</li><li>Confirma tu pedido y te contactamos para coordinar el pago y la entrega.</li></ol><p><a class="btn-link" href="#compra">Ir a comprar</a></p></div>
       </details>
       <details class="faq-item">
-        <summary><span data-icon="truck" data-size="20"></span> ¿Hacen envíos? ¿A dónde llegan?</summary>
-        <div class="faq-body"><p>Sí, entregamos en Honduras. Al recibir tu pedido te contactamos para acordar el lugar, el día y el costo de envío según tu zona.</p></div>
+        <summary><span data-icon="truck" data-size="20"></span> <span data-i18n="faq.q5">¿Hacen envíos? ¿A dónde llegan?</span></summary>
+        <div class="faq-body" data-i18n="faq.a5"><p>Sí, entregamos en Honduras. Al recibir tu pedido te contactamos para acordar el lugar, el día y el costo de envío según tu zona.</p></div>
       </details>
       <details class="faq-item">
-        <summary><span data-icon="card" data-size="20"></span> ¿Cómo puedo pagar?</summary>
-        <div class="faq-body"><p>Cuando confirmamos tu pedido te enviamos las formas de pago disponibles. No necesitas pagar nada en esta página.</p></div>
+        <summary><span data-icon="card" data-size="20"></span> <span data-i18n="faq.q6">¿Cómo puedo pagar?</span></summary>
+        <div class="faq-body" data-i18n="faq.a6"><p>Cuando confirmamos tu pedido te enviamos las formas de pago disponibles. No necesitas pagar nada en esta página.</p></div>
       </details>
       <details class="faq-item">
-        <summary><span data-icon="heart" data-size="20"></span> ¿A dónde va mi dinero?</summary>
-        <div class="faq-body"><p>A producir más bolsas: la materia prima, la elaboración a mano y la entrega. Así cada compra ayuda a sacar más plástico de uso único de las casas y negocios.</p><p><a class="btn-link" href="#causa">Conoce nuestra causa</a></p></div>
+        <summary><span data-icon="heart" data-size="20"></span> <span data-i18n="faq.q7">¿A dónde va mi dinero?</span></summary>
+        <div class="faq-body" data-i18n="faq.a7"><p>A producir más bolsas: la materia prima, la elaboración a mano y la entrega. Así cada compra ayuda a sacar más plástico de uso único de las casas y negocios.</p><p><a class="btn-link" href="#causa">Conoce nuestra causa</a></p></div>
       </details>
     </div>
   </div>
@@ -273,9 +277,9 @@
 <section class="compra" id="compra">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow">Compra</span>
-      <h2>Haz tu pedido</h2>
-      <p class="lead">Elige tu bolsa y cuántos paquetes. Te contactamos para coordinar la entrega.</p>
+      <span class="eyebrow" data-i18n="buy.eyebrow">Compra</span>
+      <h2 data-i18n="buy.title">Haz tu pedido</h2>
+      <p class="lead" data-i18n="buy.lead">Elige tu bolsa y cuántos paquetes. Te contactamos para coordinar la entrega.</p>
     </div>
     <div class="checkout-card">
       <aside class="checkout-side" id="checkoutSide"><!-- generado por js/app.js --></aside>
@@ -284,36 +288,36 @@
         <div id="checkoutForm">
           <h3 id="checkoutTitle">Tu pedido</h3>
 
-          <span class="field-label">1. Elige tu bolsa</span>
-          <div class="pills" id="checkoutPick" role="group" aria-label="Elige tu bolsa"></div>
+          <span class="field-label" data-i18n="buy.step1">1. Elige tu bolsa</span>
+          <div class="pills" id="checkoutPick" role="group" aria-label="Elige tu bolsa" data-i18n-attr="aria-label:buy.pick"></div>
 
           <div class="price-line" id="unitPriceLabel"></div>
 
-          <span class="field-label">2. ¿Cuántos paquetes? (6 bolsas cada uno)</span>
+          <span class="field-label" data-i18n="buy.step2">2. ¿Cuántos paquetes? (6 bolsas cada uno)</span>
           <div class="stepper">
-            <button type="button" id="minus" aria-label="Quitar un paquete">−</button>
-            <input type="text" id="qty" value="1" inputmode="numeric" aria-label="Cantidad de paquetes">
-            <button type="button" id="plus" aria-label="Agregar un paquete">+</button>
+            <button type="button" id="minus" aria-label="Quitar un paquete" data-i18n-attr="aria-label:buy.minus">−</button>
+            <input type="text" id="qty" value="1" inputmode="numeric" aria-label="Cantidad de paquetes" data-i18n-attr="aria-label:buy.qty">
+            <button type="button" id="plus" aria-label="Agregar un paquete" data-i18n-attr="aria-label:buy.plus">+</button>
           </div>
-          <div class="quick-packs" id="quickPacks" role="group" aria-label="Cantidades sugeridas"></div>
+          <div class="quick-packs" id="quickPacks" role="group" aria-label="Cantidades sugeridas" data-i18n-attr="aria-label:buy.quick"></div>
           <p class="units-note" id="unitsNote"></p>
 
           <div class="total-row">
-            <span class="label">Total</span>
+            <span class="label" data-i18n="buy.total">Total</span>
             <span class="amount" id="total"></span>
           </div>
 
-          <button type="button" class="btn btn-block" id="confirmBtn">Hacer mi pedido</button>
-          <p class="microcopy">Página de demostración — conecta aquí tu pasarela de pago o enlace de contacto.</p>
+          <button type="button" class="btn btn-block" id="confirmBtn" data-i18n="buy.submit">Hacer mi pedido</button>
+          <p class="microcopy" data-i18n="buy.micro">Página de demostración — conecta aquí tu pasarela de pago o enlace de contacto.</p>
         </div>
 
         <div class="confirm" id="confirmPanel">
           <div class="checkmark">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <h4>¡Gracias por tu pedido!</h4>
+          <h4 data-i18n="buy.thanks">¡Gracias por tu pedido!</h4>
           <p id="confirmDetail"></p>
-          <button type="button" class="btn outline" id="backBtn">Hacer otro pedido</button>
+          <button type="button" class="btn outline" id="backBtn" data-i18n="buy.again">Hacer otro pedido</button>
         </div>
       </div>
     </div>
@@ -327,21 +331,22 @@
     <div class="foot-brand">
       <!-- Fondo oscuro → logo en versión blanca -->
       <img src="assets/biobags-logo-blanco.png" alt="Bio Bags" width="104" height="72" loading="lazy">
-      <p class="foot-slogan">Bolsas que se van, no que se quedan.</p>
-      <p>Bolsas de basura biodegradables hechas a mano en Honduras.</p>
+      <p class="foot-slogan" data-i18n="foot.slogan">Bolsas que se van, no que se quedan.</p>
+      <p data-i18n="foot.text">Bolsas de basura biodegradables hechas a mano en Honduras.</p>
     </div>
-    <nav class="foot-nav" aria-label="Pie de página">
-      <a href="#comparar">Bolsas</a>
-      <a href="#depositar">¿Qué depositar?</a>
-      <a href="#causa">Nuestra causa</a>
-      <a href="#preguntas">Preguntas frecuentes</a>
-      <a href="#compra">Comprar</a>
+    <nav class="foot-nav" aria-label="Pie de página" data-i18n-attr="aria-label:nav.footer">
+      <a href="#comparar" data-i18n="nav.bags">Bolsas</a>
+      <a href="#depositar" data-i18n="nav.deposit">¿Qué depositar?</a>
+      <a href="#causa" data-i18n="nav.cause">Nuestra causa</a>
+      <a href="#preguntas" data-i18n="nav.faqFull">Preguntas frecuentes</a>
+      <a href="#compra" data-i18n="nav.buy">Comprar</a>
     </nav>
   </div>
 </footer>
 
 <script src="js/utils.js"></script>
 <script src="js/products.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/carousel.js"></script>
 <script src="js/app.js"></script>
 </body>
